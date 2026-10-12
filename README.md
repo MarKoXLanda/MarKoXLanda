@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td width="42%" valign="top">
-      <img src="assets/about.jpeg" alt="window" width="100%" />
+      <img src="assets/about.jpg" alt="window" width="100%" />
     </td>
     <td width="58%" valign="top">
 
