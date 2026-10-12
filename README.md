@@ -72,7 +72,7 @@ Right now I'm deep into **APIs using .NET**
    
    </td>
    <td width="40%" valign="top">
-   <img src="assets/skills.jpeg" alt="forest" width="100%" />
+   <img src="assets/skills.png" alt="forest" width="100%" />
    </td>
    </tr>
    </table>
