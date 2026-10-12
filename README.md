@@ -148,5 +148,5 @@ A clinic management API, used as the base for a database architecture project wi
 
 <h1>// Contact</h1>
 
-<a href="mailto:markox.landa@gmail.com"><img src="https://img.shields.io/badge/Email-2E4A1F?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+<a href="mailto:mar_fer_rodriguez@hotmail.com"><img src="https://img.shields.io/badge/Email-2E4A1F?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 <a href="https://github.com/MarKoXLanda"><img src="https://img.shields.io/badge/GitHub-1F2E14?style=for-the-badge&logo=github&logoColor=white" /></a>
