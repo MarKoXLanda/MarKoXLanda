@@ -94,7 +94,7 @@ Right now I'm deep into **APIs using .NET**
    <td width="50%" valign="top">
    
    ### 🛒 [Smart Retail Store](https://github.com/Tyreans/HACK_SALTILLO_RETO_SOFTEK)
-   **Hack Saltillo · Softek challenge**
+   **Hack Saltillo Road to Tech 2026 · Softtek challenge**
    An intelligent store platform for retail. I worked on the **Express.js API**, the **PostgreSQL** database and exporting inventory tables to Excel.
    
    `Node.js` `Express` `PostgreSQL` `Gemini API`
