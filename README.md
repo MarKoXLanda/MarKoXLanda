@@ -36,9 +36,9 @@ Right now I'm deep into **APIs using .NET**
    <img src="https://img.shields.io/badge/Java-3D6324?style=for-the-badge&logo=openjdk&logoColor=white" />
    <img src="https://img.shields.io/badge/Kotlin-6B8E3D?style=for-the-badge&logo=kotlin&logoColor=white" />
    <img src="https://img.shields.io/badge/JavaScript-2F4F1E?style=for-the-badge&logo=javascript&logoColor=white" />
-   <img src="https://img.shields.io/badge/C%23-1B2A12?style=for-the-badge&logo=dotnet&logoColor=white" />
+   
    <img src="https://img.shields.io/badge/PHP-3D6324?style=for-the-badge&logo=php&logoColor=white" />
-   <img src="https://img.shields.io/badge/C-1B2A12?style=for-the-badge&logo=c&logoColor=white" />
+   
    <img src="https://img.shields.io/badge/HTML5-2F4F1E?style=for-the-badge&logo=html5&logoColor=white" />
    
    
@@ -64,6 +64,7 @@ Right now I'm deep into **APIs using .NET**
    <img src="https://img.shields.io/badge/IBM_Db2-1B2A12?style=for-the-badge&logo=ibm&logoColor=white" />
    <img src="https://img.shields.io/badge/Node.js-1B2A12?style=for-the-badge&logo=nodedotjs&logoColor=white" />
    <img src="https://img.shields.io/badge/Express-2F4F1E?style=for-the-badge&logo=express&logoColor=white" />
+   <img src="https://img.shields.io/badge/C%23-1B2A12?style=for-the-badge&logo=dotnet&logoColor=white" />
    
    <h2>spoken languages</h2>
    
