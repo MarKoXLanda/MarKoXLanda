@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td width="42%" valign="top">
-      <img src="assets/about.jpg" alt="window" width="100%" />
+      <img src="assets/about.jpeg" alt="window" width="100%" />
     </td>
     <td width="58%" valign="top">
 
@@ -72,7 +72,7 @@ Right now I'm deep into **APIs using .NET**
    
    </td>
    <td width="40%" valign="top">
-   <img src="assets/skills.jpg" alt="forest" width="100%" />
+   <img src="assets/skills.jpeg" alt="forest" width="100%" />
    </td>
    </tr>
    </table>
