@@ -145,6 +145,12 @@ Right now I'm deep into **APIs using .NET**
    <img height="165" src="https://github-readme-stats.vercel.app/api?username=MarKoXLanda&show_icons=true&hide_border=true&bg_color=0D1117&title_color=8FBC5A&icon_color=6B8E3D&text_color=E6EDF3" />
    <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MarKoXLanda&layout=compact&hide_border=true&bg_color=0D1117&title_color=8FBC5A&text_color=E6EDF3" />
    </p>
+
+   <h1>// VPet</h1>
+
+  <p align="center">
+  <img src="assets/vpet.svg" alt="Ame, mi mascota virtual" />
+  </p>
    
    <h1>// Contact</h1>
    
