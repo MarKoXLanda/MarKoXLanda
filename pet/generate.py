@@ -1,5 +1,5 @@
 """
-VPet para el README de GitHub: Ame (o "Bit", la mini computadora).
+VPet para el README de GitHub: Ame (o "Bit", la mini computadora)h.
 Lee tu actividad publica reciente y dibuja assets/vpet.svg:
   - cada commit le da XP  -> sube de nivel cada 100
   - 5+ commits en 24 h      -> emocionada
