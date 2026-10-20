@@ -21,29 +21,46 @@ CHARACTER = os.environ.get("VPET_CHARACTER", "ame")  # "ame" o "bit"
 
 
 # ---------- datos ----------
+def _get(url):
+    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json",
+                                               **({"Authorization": f"Bearer {TOKEN}"} if TOKEN else {})})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.load(r)
+
+
 def fetch_events():
+    """Actividad publica (incluye repos de organizaciones/equipos)."""
     events = []
     for page in (1, 2, 3):
-        req = urllib.request.Request(
-            f"https://api.github.com/users/{USER}/events/public?per_page=100&page={page}",
-            headers={"Accept": "application/vnd.github+json",
-                     **({"Authorization": f"Bearer {TOKEN}"} if TOKEN else {})})
-        with urllib.request.urlopen(req, timeout=20) as r:
-            batch = json.load(r)
+        batch = _get(f"https://api.github.com/users/{USER}/events/public?per_page=100&page={page}")
         events += batch
         if len(batch) < 100:
             break
     return events
 
 
-def summarize(events, state):
+def fetch_repos():
+    """Fecha del ultimo push de cada repo publico tuyo (respaldo por si la actividad no lo reporta)."""
+    try:
+        return _get(f"https://api.github.com/users/{USER}/repos?per_page=100&sort=pushed&type=owner")
+    except Exception as e:  # si falla, seguimos solo con la actividad
+        print("aviso: no se pudieron leer los repos:", e)
+        return []
+
+
+def _ts(s):
+    return datetime.fromisoformat(s.replace("Z", "+00:00"))
+
+
+def summarize(events, state, repos=()):
     now = datetime.now(timezone.utc)
     seen = set(state.get("seen", []))
     last_push, new_commits, commits_24h = None, 0, 0
+    fresh_repos = set()  # repos con push nuevo visto en la actividad
     for e in events:
         if e.get("type") != "PushEvent":
             continue
-        t = datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))
+        t = _ts(e["created_at"])
         size = max(1, e.get("payload", {}).get("size", 1) or 1)
         last_push = max(last_push or t, t)
         if now - t < timedelta(hours=24):
@@ -51,12 +68,30 @@ def summarize(events, state):
         if e["id"] not in seen:
             new_commits += size
             seen.add(e["id"])
+            fresh_repos.add(e.get("repo", {}).get("name", "").split("/")[-1].lower())
+    # respaldo: fecha de ultimo push de cada repo (sin contar el repo del perfil,
+    # porque ahi el bot guarda a la mascota)
+    prev = state.get("repos", {})
+    current = {}
+    for r in repos or ():
+        name, pushed = r.get("name", ""), r.get("pushed_at")
+        if not pushed or name.lower() == USER.lower():
+            continue
+        current[name] = pushed
+        t = _ts(pushed)
+        last_push = max(last_push or t, t)
+        if name in prev and pushed != prev[name] and name.lower() not in fresh_repos:
+            new_commits += 1
+            if now - t < timedelta(hours=24):
+                commits_24h += 1
+    if current:
+        state["repos"] = current
     state["seen"] = sorted(seen)[-500:]
     state["xp"] = state.get("xp", 0) + new_commits * 10
-    if last_push:
+    if last_push and (not state.get("last_push") or last_push > _ts(state["last_push"])):
         state["last_push"] = last_push.isoformat()
     lp = state.get("last_push")
-    days = (now - datetime.fromisoformat(lp)).total_seconds() / 86400 if lp else 99
+    days = (now - _ts(lp)).total_seconds() / 86400 if lp else 99
     return state, days, commits_24h
 
 
@@ -641,7 +676,7 @@ def main():
         svg = render(mood, 7, 40, days)
     else:
         state = json.load(open(STATE)) if os.path.exists(STATE) else {}
-        state, days, c24 = summarize(fetch_events(), state)
+        state, days, c24 = summarize(fetch_events(), state, fetch_repos())
         xp = state["xp"]
         svg = render(mood_for(days, c24), 1 + xp // 100, xp % 100, days)
         os.makedirs(os.path.dirname(STATE) or ".", exist_ok=True)
