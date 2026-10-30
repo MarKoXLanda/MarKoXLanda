@@ -50,7 +50,7 @@
   <text x="0" y="38" class="t h">Ame <tspan class="m">Lv. 4</tspan></text>
   <text x="0" y="58" class="t m">feliz · commit reciente</text>
   <text x="0" y="80" class="t s">felicidad</text><rect x="0" y="86" width="150" height="10" rx="2" fill="#1B2A12"/><rect x="0" y="86" width="135" height="10" rx="2" fill="#7BC950"/>
-  <text x="0" y="108" class="t s">comida (commits)</text><rect x="0" y="114" width="150" height="10" rx="2" fill="#1B2A12"/><rect x="0" y="114" width="143" height="10" rx="2" fill="#B5A85A"/>
+  <text x="0" y="108" class="t s">comida (commits)</text><rect x="0" y="114" width="150" height="10" rx="2" fill="#1B2A12"/><rect x="0" y="114" width="139" height="10" rx="2" fill="#B5A85A"/>
   <text x="0" y="136" class="t s">xp 60/100</text><rect x="0" y="142" width="150" height="10" rx="2" fill="#1B2A12"/><rect x="0" y="142" width="90" height="10" rx="2" fill="#6B8E3D"/>
 </g>
 </svg>
